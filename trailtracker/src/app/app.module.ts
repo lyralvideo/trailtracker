@@ -24,6 +24,14 @@ import { TrailComponent } from './trail/trail.component';
         component: LoginComponent
       },
       {
+        path: 'trail',
+        component: TrailComponent
+      },
+      {
+        path: 'results',
+        component: ResultsComponent
+      },
+      {
         path: '',
         component: HomeComponent
       }
