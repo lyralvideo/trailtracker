@@ -164,3 +164,68 @@ a:hover {
 a:hover {
   color: #125699;
 }
+
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example {
+  min-width: 700px;
+}
+
+form.example input[type=text] {
+  min-height: 80px;
+  min-width: 500px;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  min-height: 80px;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.small-image {
+  display: flex;
+  margin: 0px auto;
+  margin-bottom: 0px;
+  padding: 0 10px;
+  max-width: 40px;
+  min-height: 30px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.magnify {
+  background-image: url("../../assets/images/magnifyingglass.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
