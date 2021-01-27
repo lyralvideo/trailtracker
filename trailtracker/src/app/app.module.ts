@@ -26,7 +26,8 @@ import { TrailComponent } from './trail/trail.component';
       {
         path: '',
         component: HomeComponent
-      }
+      },
+      {path: 'results', component: ResultsComponent}
     ]),
     BrowserAnimationsModule
   ],
