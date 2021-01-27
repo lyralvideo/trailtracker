@@ -1,0 +1,30 @@
+.background {
+    background-image: url("../assets/images/background-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.content {
+    display: flex;
+    margin: 50px auto;
+    margin-bottom: 0px;
+    padding: 0 16px;
+    min-width: 1200px;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
