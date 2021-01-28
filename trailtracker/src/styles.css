@@ -4,5 +4,36 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.background {
+    background-image: url("./assets/images/background-2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #0c6810;
+  color: white;
+  font-weight: 400;
+}
+
+.toolbar span {
+  margin: 0 16px;
+}
+
+.toolbar button {
+  margin-right: 16px;
+}
+
+.spacer {
+  flex: 1;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

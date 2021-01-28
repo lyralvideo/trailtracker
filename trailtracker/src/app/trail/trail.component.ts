@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-trail',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrailComponent implements OnInit {
 
+  @Input() selected: boolean;
+  @Output() selectedChange = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public toggleFavorite() {
+    this.selected = !this.selected;
+    this.selectedChange.emit(this.selected);
   }
 
 }
