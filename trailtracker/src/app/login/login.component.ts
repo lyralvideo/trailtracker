@@ -1,12 +1,5 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-//import { AppComponent } from 'app/app.component';
+import { Component, OnInit } from '@angular/core';
 
-const modules = [
-  MatButtonModule,
-  MatFormFieldModule,
-]; 
 
 
 @Component({
@@ -24,12 +17,4 @@ export class LoginComponent implements OnInit {
   }
 
 } 
-/*@NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [MatButtonModule, MatFormFieldModule],
-  providers: [],
-  bootstrap: []
 
-}) export class AppModule { } */
