@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultsComponent } from './results/results.component';
 import { TrailComponent } from './trail/trail.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { TrailComponent } from './trail/trail.component';
     HomeComponent,
     LoginComponent,
     ResultsComponent,
-    TrailComponent
+    TrailComponent,
   ],
   imports: [
+    MatCardModule,
     BrowserModule,
     RouterModule.forRoot([
       {
@@ -34,7 +36,9 @@ import { TrailComponent } from './trail/trail.component';
       {
         path: '',
         component: HomeComponent
-      }
+      },
+      {path: 'results', component: ResultsComponent},
+      {path: 'trail', component: TrailComponent}
     ]),
     BrowserAnimationsModule
   ],
