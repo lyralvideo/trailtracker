@@ -214,7 +214,7 @@ form.example::after {
 
 .small-image {
   display: flex;
-  margin: 0px auto;
+  margin-left: 10px;
   margin-bottom: 0px;
   padding: 0 10px;
   max-width: 40px;
