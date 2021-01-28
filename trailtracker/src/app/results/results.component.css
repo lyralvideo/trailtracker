@@ -1,0 +1,223 @@
+.background {
+    background: url("../../assets/images/background-2.jpg");
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  
+  
+  .content {
+    display: flex;
+    margin: 50px auto;
+    margin-bottom: 0px;
+    padding: 0 16px;
+    width:100%;
+    height:100%;
+    min-width: 1200px;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search_box {
+      display: flex;
+      padding: 10px 10px;
+      margin: 50px 10px
+  }
+
+  .result_list_box {
+    background-color :#129618;
+    border: 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    display: table;
+    width: 1200px;
+    height: auto;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    border-radius: 25px;
+  }
+
+  .result_list_box h1{
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    display:block;
+  }
+
+  mat-card.result_list {
+    border: 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    width: 48%;
+    height: 200px;
+    padding: 10px 10px;
+    margin: 12px 10px;
+    border-radius: 25px;
+    float:left;
+  }
+
+  div.card_data img {
+      width: 180px;
+      height: 180px;
+      border-radius: 25px;
+      border: 1px;
+      border-color: rgb(0, 0, 0);
+      border-style: solid;
+      vertical-align: middle;
+  }
+
+  div.col {
+      float:left
+  }
+
+  div.info_list {
+      width: 30%;
+  }
+
+  div.trail_card_button{
+      display: flex;
+      float:right;
+      width: 30%;
+      height: auto;
+      justify-content: center;
+  }
+
+  div.trail_card_button button {
+    border-radius: 15px;
+    background-color:aqua;
+    margin: 25% 0%;
+    width: 100px;
+    height: 50px;
+  }
+
+  div.card_data h3{
+      text-align:center;
+      font-weight: bold;
+      font-size: auto;
+      margin-left: 4px;
+  }
+
+  div.row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: white;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: #0c6810;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .toolbar span {
+    margin: 0 16px;
+  }
+  
+  .toolbar button {
+    margin-right: 16px;
+  }
+
+  
+  body {
+    font-family: Arial;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  form.example {
+    min-width: 700px;
+  }
+
+  form.example input[type=text] {
+    min-height: 80px;
+    min-width: 500px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius:25px;
+  }
+  
+  form.example button {
+    float: center;
+    width: 18%;
+    margin-left: 10px;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius:25px;
+    cursor: pointer;
+    min-height: 80px;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .small-image {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 0px;
+    padding: 21px 10px;
+    max-width: 40px;
+    min-height: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .magnify {
+    background-image: url("../../assets/images/magnifyingglass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
