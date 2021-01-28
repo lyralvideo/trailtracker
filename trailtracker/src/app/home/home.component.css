@@ -228,3 +228,8 @@ form.example::after {
   background-size: cover;
   background-position: bottom;
 }
+
+.advanced-search {
+  min-width: 700px;
+
+}

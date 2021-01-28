@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultsComponent } from './results/results.component';
 import { TrailComponent } from './trail/trail.component';
+import { FormsModule } from '@angular/forms'; 
+import { NgSelectModule } from '@ng-select/ng-select'; 
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { TrailComponent } from './trail/trail.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    NgSelectModule,
     RouterModule.forRoot([
       {
         path: 'login',
