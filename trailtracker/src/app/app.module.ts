@@ -7,10 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultsComponent } from './results/results.component';
 import { TrailComponent } from './trail/trail.component';
+<<<<<<< HEAD
+import { FormsModule } from '@angular/forms'; 
+import { NgSelectModule } from '@ng-select/ng-select'; 
+=======
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+>>>>>>> 0f5f5db53955a474417e6bcf844c410ea63881a9
 
 @NgModule({
   declarations: [
@@ -26,6 +31,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
     MatCardModule,
     BrowserModule,
+    FormsModule,
+    NgSelectModule,
     RouterModule.forRoot([
       {
         path: 'login',
