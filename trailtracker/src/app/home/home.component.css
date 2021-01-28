@@ -213,11 +213,22 @@ form.example::after {
 }
 
 .small-image {
+<<<<<<< HEAD
   margin: 0px auto;
   margin-bottom: 0px;
   padding: 0 10px;
   min-width: 100px;
   min-height: 50px;
+=======
+  display: flex;
+  margin-left: 30px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding: 21px 10px;
+  max-width: 40px;
+  min-height: 30px;
+>>>>>>> 2be2a2d1cef47030adcaec218436319ab083e2df
   flex-direction: column;
   align-items: center;
 }
