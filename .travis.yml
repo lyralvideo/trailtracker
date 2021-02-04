@@ -10,7 +10,7 @@ install:
 
 Script:
   - cd trailtracker
-  - npm run test -- -- no-watch --no-progress
+  - npm run test -- -- no-watch 
  
  
   
