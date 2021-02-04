@@ -9,7 +9,7 @@ install:
   - echo 'Running Tests'
 
 Script:
-  - npm run test -- -- no-watch --no-progress
+  - npm run test -- -- watch=false --no-progress
  
  
   
