@@ -10,4 +10,3 @@ install:
 
 Script:
   - npm run test -- -- no-watch --no-progress
-  
