@@ -7,3 +7,6 @@ install:
   - echo 'Installing Dependencies'
   - npm install
   - echo 'Running Tests'
+
+Script:
+  - npm run test -- -- no-watch --no-progress
