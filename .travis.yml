@@ -3,13 +3,13 @@ node_js:
   - 14
 
 install:
-  - cd trailtracker
   - echo '*****Build Starts*****'
   - echo 'Installing Dependencies'
   - npm install
   - echo 'Running Tests'
 
 Script:
+  - cd trailtracker
   - npm run test -- -- no-watch --no-progress
  
  
