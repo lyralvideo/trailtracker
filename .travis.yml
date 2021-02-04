@@ -5,12 +5,11 @@ node_js:
 install:
   - echo '*****Build Starts*****'
   - echo 'Installing Dependencies'
-  - npm install
+  - npm install -g
   - echo 'Running Tests'
 
 Script:
-  - cd trailtracker
-  - npm run test -- -- no-watch 
+  - npm run test -- -- no-watch --no-progress
  
  
   
