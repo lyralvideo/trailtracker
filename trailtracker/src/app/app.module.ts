@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     FormsModule,
     NgSelectModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'login',
