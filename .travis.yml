@@ -15,6 +15,7 @@ install:
   - echo 'Installing Dependencies'
   - npm install
   - ng add @angular/material
+  - ng g service restService
   - echo 'Running Tests'
 
 Script:
