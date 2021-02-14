@@ -19,9 +19,8 @@ export class ResultsComponent implements OnInit {
   }
 
   showResults() {
-    this.restService.getResults().subscribe((data: Config) => this.config = { ...data});
+    this.restService.getResults('runs by waterfalls').subscribe((data: Config) => this.config = { ...data});
     console.log(this.config)
-    //this.clientService.getResults()
   }
 
 }

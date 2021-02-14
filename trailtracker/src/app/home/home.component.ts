@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'app/restService.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private restService:RestService) { }
   categories = [
     {id: 1, name: 'Length', disabled: true},
     {id: 2, name: 'Short'},
@@ -32,6 +33,12 @@ export class HomeComponent implements OnInit {
     console.log(this.selected);
   }
   ngOnInit(): void {
+  }
+
+  getResults() {
+    this.restService.getResults('runs by waterfalls').subscribe(
+      x => console.log(x)
+    )
   }
 
 }
