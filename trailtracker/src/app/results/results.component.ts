@@ -1,6 +1,7 @@
+import { RestService } from './../restService.service';
 import { Component, OnInit } from '@angular/core';
-
 import {MatCardHarness} from '@angular/material/card/testing';
+import { Config } from 'protractor';
 
 @Component({
   selector: 'app-results',
@@ -9,9 +10,18 @@ import {MatCardHarness} from '@angular/material/card/testing';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  headers: string[];
+  config: Config;
+
+  constructor(private restService: RestService) { }
 
   ngOnInit(): void {
+  }
+
+  showResults() {
+    this.restService.getResults().subscribe((data: Config) => this.config = { ...data});
+    console.log(this.config)
+    //this.clientService.getResults()
   }
 
 }
