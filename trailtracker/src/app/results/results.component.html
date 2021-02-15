@@ -8,8 +8,8 @@
     <div class= "content background">
         <h2>Trail Tracker</h2>
         <form class="example">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit" (click) = showResults()><i class="small-image magnify"></i></button>
+            <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" name="search">
+            <button type="submit" (click) = showResults(searchTerm)><i class="small-image magnify"></i></button>
         </form>
 
         <div class="result_list_box">

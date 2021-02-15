@@ -26,7 +26,7 @@ export class RestService {
   query_url = DISCOVERY_URL+'/v1/environments/' + ENVIRONMENT_ID + '/collections/' + COLLECTION_ID + '/query?version=2018-12-03&count=10&deduplicate=false&highlight=true&passages=true&passages.count=20&natural_language_query=';
   getResults(query:String) {
     var i = 0;
-    var query_url : string;
+    var query_url = "";
     for (i = 0; i < query.length; i++) {
       if (query[i] == ' ') {
         query_url += '%20';
@@ -34,6 +34,7 @@ export class RestService {
         query_url += query[i];
       }
     }
+    console.log(this.query_url + query_url)
     return this.httpClient.get(this.query_url + query_url, requestOptions)
   }
 }
