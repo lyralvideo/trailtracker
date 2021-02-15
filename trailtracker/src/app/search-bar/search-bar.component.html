@@ -1,11 +1,12 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
   <section class="example">
     <input type="text" placeholder="Search Trail Tracker" name="search">
-    <button mat-raised-button color="primary" routerLink ="/results">Search</button>
+    <button type="button" color="primary" routerLink ="/results">Search</button>
   </section>
   <br>
   <div class="advanced-search">
-    <ng-select [items]="categories"
+    <ng-select    name="selected"
+                  [items]="categories"
                   bindLabel="name"
                   placeholder="Select Category"
                   appendTo="body"
