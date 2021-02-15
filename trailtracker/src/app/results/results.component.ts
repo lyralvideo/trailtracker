@@ -12,14 +12,15 @@ export class ResultsComponent implements OnInit {
 
   headers: string[];
   config: Config;
+  searchTerm: string;
 
   constructor(private restService: RestService) { }
 
   ngOnInit(): void {
   }
 
-  showResults() {
-    this.restService.getResults('runs by waterfalls').subscribe((data: Config) => {
+  showResults(searchTerm: string) {
+    this.restService.getResults(searchTerm).subscribe((data: Config) => {
       this.config = { ...data}
       console.log(this.config.results)});
   }
