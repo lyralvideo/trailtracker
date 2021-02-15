@@ -13,6 +13,7 @@
         </form>
 
         <div class="result_list_box">
+            <p *ngIf='config'>{{config.results[0].description}}</p>
             <h1>Showing results for "scenic runs"</h1>
             <div class= "row">
                 <mat-card class= "result_list">

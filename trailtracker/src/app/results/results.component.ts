@@ -19,9 +19,14 @@ export class ResultsComponent implements OnInit {
   }
 
   showResults() {
-    this.restService.getResults().subscribe((data: Config) => this.config = { ...data});
-    console.log(this.config)
-    //this.clientService.getResults()
+    this.restService.getResults().subscribe((data: Config) => {
+      this.config = { ...data}
+      console.log(this.config.results)});
+    //this.printToConsole(this.config.results);
+  }
+
+  printToConsole(str: string) {
+    console.log(str);
   }
 
 }
