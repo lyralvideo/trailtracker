@@ -19,6 +19,7 @@ export class ResultsComponent implements OnInit {
   }
 
   showResults() {
+<<<<<<< HEAD
     this.restService.getResults().subscribe((data: Config) => {
       this.config = { ...data}
       console.log(this.config.results)});
@@ -27,6 +28,10 @@ export class ResultsComponent implements OnInit {
 
   printToConsole(str: string) {
     console.log(str);
+=======
+    this.restService.getResults('runs by waterfalls').subscribe((data: Config) => this.config = { ...data});
+    console.log(this.config)
+>>>>>>> 37feceb26d6650b0127c2b55bd88e1985165c263
   }
 
 }
