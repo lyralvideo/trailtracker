@@ -1,0 +1,90 @@
+section.example {
+    min-width: 700px;
+  }
+  
+  section.example input[type=text] {
+    min-height: 80px;
+    max-width: 535px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  section.example button {
+    width: 20%;
+    min-height: 80px;
+    border-radius: 10px;
+    background-color: #0c6810;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .small-image {
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 21px 10px;
+    max-width: 40px;
+    min-height: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .magnify {
+    background-image: url("../../assets/images/magnifyingglass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+  
+  .advanced-search {
+    min-width: 700px;
+  
+  }
+  
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }

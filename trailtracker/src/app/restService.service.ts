@@ -27,11 +27,13 @@ export class RestService {
   getResults(query:String) {
     var i = 0;
     var query_url = "";
-    for (i = 0; i < query.length; i++) {
-      if (query[i] == ' ') {
-        query_url += '%20';
-      } else {
-        query_url += query[i];
+    if (query != undefined) {
+      for (i = 0; i < query.length; i++) {
+        if (query[i] == ' ') {
+          query_url += '%20';
+        } else {
+          query_url += query[i];
+        }
       }
     }
     console.log(this.query_url + query_url)

@@ -1,18 +1,5 @@
   <div class="content background" role="main">
     <h2>Trail Tracker</h2>
-    <form class="example">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit" routerLink="/results"><i class="small-image magnify"></i></button>
-    </form>
-    <div class="advanced-search">
-      <ng-select [items]="categories"
-                    bindLabel="name"
-                    placeholder="Select Category"
-                    appendTo="body"
-                    [multiple]="true"
-                    [(ngModel)]="selected">
-      </ng-select>
-      <button (click)="getResults()">click</button>
-    </div>
+    <app-search-bar></app-search-bar>
   </div>
   

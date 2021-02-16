@@ -1,0 +1,17 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <section class="example">
+    <input type="text" placeholder="Search Trail Tracker" name="search" ngModel>
+    <button type="submit" color="primary">Search</button>
+  </section>
+  <br>
+  <div class="advanced-search">
+    <ng-select    name="selected"
+                  [items]="categories"
+                  bindLabel="name"
+                  placeholder="Select Category"
+                  appendTo="body"
+                  [multiple]="true"
+                  [(ngModel)]="selected">
+    </ng-select>
+  </div>
+</form>

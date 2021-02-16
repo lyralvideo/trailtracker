@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http'
+import { MatDividerModule } from '@angular/material/divider';
+import { SearchBarComponent } from './search-bar/search-bar.component'
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { HttpClientModule } from '@angular/common/http'
     LoginComponent,
     ResultsComponent,
     TrailComponent,
+    SearchBarComponent,
   ],
   imports: [
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
+    MatDividerModule,
     MatCardModule,
     BrowserModule,
     FormsModule,
@@ -48,9 +52,7 @@ import { HttpClientModule } from '@angular/common/http'
       {
         path: '',
         component: HomeComponent
-      },
-      {path: 'results', component: ResultsComponent},
-      {path: 'trail', component: TrailComponent}
+      }
     ]),
     BrowserAnimationsModule
   ],
