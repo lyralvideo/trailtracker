@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterTestingModule} from '@angular/router/testing';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { SearchBarComponent } from './search-bar.component';
 
 describe('SearchBarComponent', () => {
@@ -7,7 +9,8 @@ describe('SearchBarComponent', () => {
   let fixture: ComponentFixture<SearchBarComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    await TestBed.configureTestingModule(
+      {imports: [ FormsModule ],
       declarations: [ SearchBarComponent ]
     })
     .compileComponents();
@@ -15,7 +18,7 @@ describe('SearchBarComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
+      imports: [ NgSelectModule,
         RouterTestingModule.withRoutes(
           [{path: '', component: SearchBarComponent}]
         )
