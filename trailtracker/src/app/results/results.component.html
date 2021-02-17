@@ -13,40 +13,27 @@
         </form>
 
         <div class="result_list_box">
-            <p *ngIf='config'>{{config.results[0].description}}</p>
             <h1>Showing results for "scenic runs"</h1>
-            <div class= "row">
-                <mat-card class= "result_list">
+            <div *ngIf='config' class= "row">
+                <mat-card *ngFor='let result of config.results' class= "result_list">
                     <div class= "card_data row">
-                        <div class= "col">
-                            <img src="../../assets/images/Trail.PNG" alt= "Trail Image">
+                        <div *ngIf='result.image' class= "col">
+                            <img src={{result.image}} alt= "Trail Image">
+                        </div>
+                        <div *ngIf='!result.image' class='col'>
+                            <img src='../../assets/images/background.jpg' alt= "Placeholder Image">
                         </div>
                         <div class= "col info_list">
-                            <h3>Dripping Rock Trail</h3>
+                            <h3>{{result.name}}</h3>
+                            <p>{{result.location}}</p>
                             <ul>
-                                <li>Pet Friendly</li>
-                                <li>6 Mile Loop</li>
-                                <li>Elevation Gain: 360ft</li>
-                                <li>Activities: Running, Walking, Hiking</li>
-                            </ul>
-                        </div>
-                        <div class= "col trail_card_button">
-                            <button type="go_to" routerLink="/trail">More Info</button>
-                        </div>
-                    </div>
-                </mat-card>
-                <mat-card class= "result_list">
-                    <div class= "card_data row">
-                        <div class= "col">
-                            <img src="../../assets/images/Trail2.PNG" alt= "Trail Image">
-                        </div>
-                        <div class= "col info_list">
-                            <h3>Olentangy Trail</h3>
-                            <ul>
-                                <li>Pet Friendly</li>
-                                <li>12.8 Mile Loop</li>
-                                <li>Elevation Gain: 250ft</li>
-                                <li>Activities: Running, Walking, Cycling</li>
+                                <li>{{result.length}} {{result.route_type}}</li>
+                                <li>Elevation Gain: {{result.elevation_gain}}</li>
+                                <li *ngIf='result.tag'>Activities:
+                                    <a *ngFor='let tag of result.tag'>
+                                        <a *ngIf="tag.tag_name.substring(tag.tag_name.length - 3) == 'ing'">{{tag.tag_name}}, </a>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class= "col trail_card_button">
