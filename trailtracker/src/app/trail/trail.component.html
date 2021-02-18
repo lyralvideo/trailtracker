@@ -3,36 +3,43 @@
         <div class= "row">
             <mat-card class= "result_list">
                 <div class= "card_data row">
-                    <div class= "col">
-                        <img src="../../assets/images/Trail.PNG" alt= "Trail Image">
+                    <div *ngIf='config' class= "col">
+                        <div *ngIf='config.results[0]'>
+                            <img src="{{config.results[0].image}}" alt="Trail Image">
+                        </div>
                     </div>
-                    <div class= "col info_list">
-                        <h1>Dripping Rock, Overlook and Big Meadows Loop</h1>
-                        <h5>Dripping Rock, Overlook and Big Meadows Loop is a 6 mile heavily trafficked loop trail located near Lewis Center, Ohio that features a river and is rated as moderate. The trail is primarily used for hiking, walking, running, and nature trips and is accessible year-round.</h5>
-                        <h3>Rating 4.5/5</h3>
-                        <ul>
-                            <li>Length: 6.0 miles</li>
-                            <li>Elevation Gain: 360 feet</li>
-                            <li>Trail Type: Loop</li>
-                            <li>Pets Allowed: Yes</li>
-                            <li>Recommended Activities: Walking, Running, Hiking</li>
-                        </ul>
-                        <h2>Favorite: <button mat-icon-button (click)="toggleFavorite()">
-
-                            <mat-icon
-                              *ngIf="selected"
-                              role="img">
-                              favorite
-                            </mat-icon>
-                          
-                            <mat-icon
-                              *ngIf="!selected"
-                              role="img">
-                              favorite_border
-                            </mat-icon>
-                          
-                          </button>
-                        </h2>
+                    <div *ngIf='config' class= "col info_list">
+                        <div *ngIf='config.results[0]'>
+                            <div>
+                                <h1>{{config.results[0].name}}</h1>
+                                <h5>{{config.results[0].description}}</h5>
+                                <h3>Rating:  {{config.results[0].rating}}/5.0</h3>
+                                <ul>
+                                    <li>Length: {{config.results[0].length}}</li>
+                                    <li>Elevation Gain: {{config.results[0].elevation_gain}}</li>
+                                    <li>Trail Type: {{config.results[0].route_type}}</li>
+                                    <li>Pets Allowed: Yes</li>
+                                </ul>
+                                <div>Tags:</div>
+                                <span *ngFor='let tag of config.results[0].tag; let i = index'>
+                                    {{tag.tag_name}}{{i === config.results[0].tag.length -1 ? '' : ',&nbsp;' }}
+                                </span>
+                                <h2>Favorite: <button mat-icon-button (click)="toggleFavorite()">
+                                    <mat-icon
+                                      *ngIf="selected"
+                                      role="img">
+                                      favorite
+                                    </mat-icon>
+                                    <mat-icon
+                                      *ngIf="!selected"
+                                      role="img">
+                                      favorite_border
+                                    </mat-icon>
+                                  
+                                  </button>
+                                </h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </mat-card>

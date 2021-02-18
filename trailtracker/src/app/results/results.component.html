@@ -8,38 +8,40 @@
     <div class= "content background">
         <h2>Trail Tracker</h2>
         <form class="example">
-            <input type="text" placeholder="Search.." [(ngModel)]="searchTerm" name="search">
-            <button type="submit" (click) = showResults(searchTerm)><i class="small-image magnify"></i></button>
+            <input type="text" placeholder="Search.." [(ngModel)]="term" name="search">
+            <button type="submit" (click) = showUpdatedResults(term)><i class="small-image magnify"></i></button>
         </form>
 
         <div class="result_list_box">
-            <h1>Showing results for "scenic runs"</h1>
+            <h1>Showing results for "{{searchTerm}}"</h1>
             <div *ngIf='config' class= "row">
                 <mat-card *ngFor='let result of config.results' class= "result_list">
-                    <div class= "card_data row">
-                        <div *ngIf='result.image' class= "col">
-                            <img src={{result.image}} alt= "Trail Image">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(result.name)">
+                        <div class= "card_data row">
+                            <div *ngIf='result.image' class= "col">
+                                <img src={{result.image}} alt= "Trail Image">
+                            </div>
+                            <div *ngIf='!result.image' class='col'>
+                                <img src='../../assets/images/background.jpg' alt= "Placeholder Image">
+                            </div>
+                            <div class= "col info_list">
+                                <h3>{{result.name}}</h3>
+                                <p>{{result.location}}</p>
+                                <ul>
+                                    <li>{{result.length}} {{result.route_type}}</li>
+                                    <li>Elevation Gain: {{result.elevation_gain}}</li>
+                                    <li *ngIf='result.tag'>Activities:
+                                        <a *ngFor='let tag of result.tag'>
+                                            <a *ngIf="tag.tag_name.substring(tag.tag_name.length - 3) == 'ing'">{{tag.tag_name}}, </a>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class= "col trail_card_button">
+                                    <button type="submit" color="primary">More Info</button>
+                            </div>
                         </div>
-                        <div *ngIf='!result.image' class='col'>
-                            <img src='../../assets/images/background.jpg' alt= "Placeholder Image">
-                        </div>
-                        <div class= "col info_list">
-                            <h3>{{result.name}}</h3>
-                            <p>{{result.location}}</p>
-                            <ul>
-                                <li>{{result.length}} {{result.route_type}}</li>
-                                <li>Elevation Gain: {{result.elevation_gain}}</li>
-                                <li *ngIf='result.tag'>Activities:
-                                    <a *ngFor='let tag of result.tag'>
-                                        <a *ngIf="tag.tag_name.substring(tag.tag_name.length - 3) == 'ing'">{{tag.tag_name}}, </a>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class= "col trail_card_button">
-                            <button type="go_to" routerLink="/trail">More Info</button>
-                        </div>
-                    </div>
+                    </form>
                 </mat-card>
             </div>
         </div>
