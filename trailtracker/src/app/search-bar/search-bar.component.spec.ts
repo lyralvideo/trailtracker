@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import { TrailComponent } from './trail.component';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterTestingModule} from '@angular/router/testing';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SearchBarComponent } from './search-bar.component';
 
-describe('TrailComponent', () => {
-  let component: TrailComponent;
-  let fixture: ComponentFixture<TrailComponent>;
+describe('SearchBarComponent', () => {
+  let component: SearchBarComponent;
+  let fixture: ComponentFixture<SearchBarComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({imports: [HttpClientTestingModule],});
-    await TestBed.configureTestingModule({
-      declarations: [ TrailComponent ]
+    await TestBed.configureTestingModule(
+      {imports: [ FormsModule ],
+      declarations: [ SearchBarComponent ]
     })
     .compileComponents();
   });
@@ -20,11 +20,11 @@ describe('TrailComponent', () => {
     TestBed.configureTestingModule({
       imports: [ NgSelectModule,
         RouterTestingModule.withRoutes(
-          [{path: '', component: TrailComponent}]
+          [{path: '', component: SearchBarComponent}]
         )
       ]
     });
-    fixture = TestBed.createComponent(TrailComponent);
+    fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

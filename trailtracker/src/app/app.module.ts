@@ -13,6 +13,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http'
+import { MatDividerModule } from '@angular/material/divider';
+import { SearchBarComponent } from './search-bar/search-bar.component'
 
 @NgModule({
   declarations: [
@@ -21,15 +24,18 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     ResultsComponent,
     TrailComponent,
+    SearchBarComponent,
   ],
   imports: [
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
+    MatDividerModule,
     MatCardModule,
     BrowserModule,
     FormsModule,
     NgSelectModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -46,9 +52,7 @@ import { MatIconModule } from '@angular/material/icon';
       {
         path: '',
         component: HomeComponent
-      },
-      {path: 'results', component: ResultsComponent},
-      {path: 'trail', component: TrailComponent}
+      }
     ]),
     BrowserAnimationsModule
   ],

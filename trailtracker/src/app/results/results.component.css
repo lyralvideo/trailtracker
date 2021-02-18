@@ -50,7 +50,6 @@
     border-color: rgb(0, 0, 0);
     border-style: solid;
     width: 48%;
-    height: 200px;
     padding: 10px 10px;
     margin: 12px 10px;
     border-radius: 25px;
@@ -72,7 +71,7 @@
   }
 
   div.info_list {
-      width: 30%;
+      width: 35%;
   }
 
   div.trail_card_button{
@@ -101,10 +100,17 @@
   }
 
   div.card_data h3{
-      text-align:center;
+      text-align:left;
       font-weight: bold;
       font-size: auto;
       margin-left: 4px;
+  }
+
+  div.card_data p{
+    text-align:left;
+    font-size: auto;
+    margin-left: 14px;
+    margin-bottom: 10px;
   }
 
   div.row::after {
