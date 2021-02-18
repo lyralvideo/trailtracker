@@ -33,6 +33,7 @@ export class ResultsComponent implements OnInit {
   showUpdatedResults(term: string) {
     this.searchTerm = term;
     this.showResults(this.searchTerm)
+    this.router.navigate(['/results'], {queryParams: {search: this.searchTerm}});
   }
   
   onSubmit(name: string) {
