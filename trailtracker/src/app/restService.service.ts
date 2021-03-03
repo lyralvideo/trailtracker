@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const DISCOVERY_URL = 'https://api.us-south.discovery.watson.cloud.ibm.com/instances/beff1375-93ea-4b19-b90a-10fbf38f45fd';
 const ENVIRONMENT_ID = '35ef0ced-f8c5-4f16-a57c-098c66505472';
-const COLLECTION_ID = '07e3efcb-0f5e-46ed-b59d-161a27ab0c61';
+const COLLECTION_ID = 'c7bf0198-9e14-40db-9e96-2b4d348585c1';
 
 const headerDict = {
   'Content-Type': 'application/json',
@@ -23,8 +23,8 @@ export class RestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  query_url = DISCOVERY_URL+'/v1/environments/' + ENVIRONMENT_ID + '/collections/' + COLLECTION_ID + '/query?version=2018-12-03&count=10&deduplicate=false&highlight=true&passages=true&passages.count=20&natural_language_query=';
-  getResults(query:String) {
+  query_url = DISCOVERY_URL + '/v1/environments/' + ENVIRONMENT_ID + '/collections/' + COLLECTION_ID + '/query?version=2018-12-03&count=10&deduplicate=false&highlight=true&passages=true&passages.count=20&natural_language_query=';
+  getResults(query: String) {
     var i = 0;
     var query_url = "";
     if (query != undefined) {

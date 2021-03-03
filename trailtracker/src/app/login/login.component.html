@@ -1,16 +1,4 @@
-<!--
-<mat-form-field appearance="legacy">
-    <mat-label></mat-label>
-    <label> Username</label><br>
-    <input placeholder="Input Username">
-    <br>
-    <label>Password</label>
-    <br>
-    <input placeholder="Input Password">
-    <br> <button mat-button>Login</button>
-  </mat-form-field>
--->
-
+<!---
 <div class = "content background">
 <div class = "container-sm w-25 position-absolute top-50 start-50 translate-middle">
   <div class="input-group">
@@ -30,3 +18,23 @@
 
 </div>
   
+-->
+<div class = "content background">
+<div class = "container-sm w-25 position-absolute top-50 start-50 translate-middle"> 
+  <form [formGroup] = 'form' (ngSubmit) = 'login()'> 
+    <div class="input-group">
+      <label class="input-group-text">Username</label> 
+      <input class="form-control" type = 'text' formControlName = 'username' /> 
+    </div>
+    <div class="input-group">
+      <label class="input-group-text">Password</label> 
+      <input class="form-control" type = 'password' formControlName = 'password' /> 
+    </div>
+      <div> 
+          <button class="btn btn-primary" type ='submit' [disabled] = '!this.form.valid'> 
+              Login 
+          </button> 
+      </div> 
+  </form> 
+</div>
+</div>
