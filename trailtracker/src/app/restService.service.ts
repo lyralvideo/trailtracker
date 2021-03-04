@@ -8,8 +8,8 @@ const COLLECTION_ID = '07e3efcb-0f5e-46ed-b59d-161a27ab0c61';
 const headerDict = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
-  'Access-Control-Allow-Headers': '*',
-  'Authorization': 'Basic YXBpa2V5Om8yQUhCakFZZnVkSzBtWFh0N2RGbVFGeDhvYWxkSWFlNW9HM2R1MmlJZjlL'
+  //'Access-Control-Allow-Headers': '*',
+  //'Authorization': 'Basic YXBpa2V5Om8yQUhCakFZZnVkSzBtWFh0N2RGbVFGeDhvYWxkSWFlNW9HM2R1MmlJZjlL'
 }
 
 const requestOptions = {
@@ -38,5 +38,9 @@ export class RestService {
     }
     console.log(this.query_url + query_url)
     return this.httpClient.get(this.query_url + query_url, requestOptions)
+  }
+
+  getResultsBackend(query: String) {
+    return this.httpClient.get("http://localhost:3000/" + "disc_test", requestOptions)
   }
 }
