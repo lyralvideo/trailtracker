@@ -14,11 +14,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MatDividerModule } from '@angular/material/divider';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { InterceptorService } from './services/interceptor-service.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,11 @@ import { AuthGuardService } from './services/auth-guard.service';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ 
+    provide: HTTP_INTERCEPTORS, 
+    useClass: InterceptorService, 
+    multi: true 
+  } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
