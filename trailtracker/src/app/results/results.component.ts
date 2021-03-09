@@ -25,7 +25,7 @@ export class ResultsComponent implements OnInit {
   }
 
   showResults(searchTerm: string) {
-    this.restService.getResultsBackend(searchTerm).subscribe((data: Config) => {
+    this.restService.getDiscResultsBackend(searchTerm).subscribe((data: Config) => {
       console.log("test1")
       this.config = { ...data }
       console.log(this.config)

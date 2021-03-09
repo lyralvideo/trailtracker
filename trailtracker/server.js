@@ -46,28 +46,8 @@ const discoveryAuthenticator = new IamTokenManager({
     serviceUrl: process.env.NATURAL_LANGUAGE_UNDERSTANDING_URL,
   });
 
-  //setup parameters for NLU query
-  const nlu_params = {
-    'text': 'biking near columbus without dogs',
-    'features': {
-      'entities': {
-        'emotion': true,
-        'sentiment': true
-      },
-      'concepts': {
-      },
-      'semantic_roles': {
-        'keywords': true,
-        'entities': true
-      },
-      'keywords': {
-        'emotion': true,
-        'sentiment': true
-      }
-    }
-  }
-
-  
+  //needed for obtaining string from query
+  const querystring = require('querystring');
   
   app.use(express.static('app/'));
 
@@ -82,9 +62,13 @@ const discoveryAuthenticator = new IamTokenManager({
     console.log('Watson browserify example server running at http://localhost:%s/', port);
   });
 
+  //NLU Parse Module - Obtaining Location - Output location 
+  //implementation to come
   
   //Test method to perform static query on IBM watson discovery service
   app.get('/disc_test', cors(), function(req, res) {
+    //print search param to console to show functionality
+    console.log(req.query.search);
     return discovery
       .query(disc_params)
       .then(({ result }) => {
@@ -99,8 +83,22 @@ const discoveryAuthenticator = new IamTokenManager({
 
   //Test method to perform query on IBM watson NLU service
   app.get('/nlu_test', function(req, res) {
+    //print search param to console to show functionality
+    console.log(req.query.search);
+    //form request from nlu useing search param in url query
     return nlu
-      .analyze(nlu_params)
+      .analyze({
+        'language': 'en',
+        'text': '' + req.query.search,
+        'features': {
+          'entities': {
+            'sentiment': true,
+          },
+          'keywords': {
+            'sentiment': true,
+          }
+        }
+      })
       .then(({ result }) => {
         res.send(result)
       })
