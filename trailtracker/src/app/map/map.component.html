@@ -1,0 +1,4 @@
+<agm-map [latitude]="latitude" [longitude]="longitude">
+    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="markerDraggable"
+        (dragEnd)="markerDragEnd($event)"></agm-marker>
+</agm-map>
