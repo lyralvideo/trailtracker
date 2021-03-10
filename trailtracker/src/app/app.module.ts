@@ -19,9 +19,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { MapComponent } from './map/map.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,11 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCdN8iOG2eBqzlsCZFjyOIUGPwtyDJ73Ew' }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCdN8iOG2eBqzlsCZFjyOIUGPwtyDJ73Ew',
+      language: 'en',
+      libraries: ['geometry', 'places']
+    }),
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
