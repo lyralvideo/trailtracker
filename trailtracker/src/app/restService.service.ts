@@ -60,7 +60,7 @@ export class RestService {
   // Method to make calls to Watson NLU service. Very similar to getDiscResultsBackend
   getNLUResultsBackend(query: String) {
     console.log("Making NLU request to backend");
-    return this.httpClient.get("http://localhost:3000/" + "nlu_test" + "/?search=" + query, requestOptions)
+    return this.httpClient.get("http://localhost:3000/" + "search" + "/?search=" + query, requestOptions)
   }
 
 }

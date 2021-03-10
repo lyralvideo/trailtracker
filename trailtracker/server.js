@@ -64,6 +64,15 @@ const discoveryAuthenticator = new IamTokenManager({
 
   //NLU Parse Module - Obtaining Location - Output location 
   //implementation to come
+  //var getLocation = function (input) {
+  //  console.log("Getting Location");
+  //  
+  //}
+
+  function getLocation(input) {
+    //var jsonOut = JSON.parse(input);
+    console.log(JSON.stringify(input, null, 2));
+  }
   
   //Test method to perform static query on IBM watson discovery service
   app.get('/disc_test', cors(), function(req, res) {
@@ -100,6 +109,32 @@ const discoveryAuthenticator = new IamTokenManager({
         }
       })
       .then(({ result }) => {
+        res.send(result)
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  });
+  
+  app.get('/search', cors(), function(req, res) {
+    //print search param to console to show functionality
+    console.log(req.query.search);
+    //form request from nlu useing search param in url query
+    nlu
+      .analyze({
+        'language': 'en',
+        'text': '' + req.query.search,
+        'features': {
+          'entities': {
+            'sentiment': true,
+          },
+          'keywords': {
+            'sentiment': true,
+          }
+        }
+      })
+      .then(({ result }) => {
+        getLocation(result)
         res.send(result)
       })
       .catch(err => {
