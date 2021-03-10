@@ -36,7 +36,8 @@ const discoveryAuthenticator = new IamTokenManager({
   //Setup parameters for dicovery query
   const disc_params = {
     environmentId: '35ef0ced-f8c5-4f16-a57c-098c66505472',
-    collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1'
+    collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1',
+    
 };
 
   //setup NLU variable
@@ -79,7 +80,11 @@ const discoveryAuthenticator = new IamTokenManager({
     //print search param to console to show functionality
     console.log(req.query.search);
     return discovery
-      .query(disc_params)
+      .query({
+        environmentId: '35ef0ced-f8c5-4f16-a57c-098c66505472',
+        collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1',
+        naturalLanguageQuery: '' + req.query.search,
+      })
       .then(({ result }) => {
         res.send(result)
         //(response => {
