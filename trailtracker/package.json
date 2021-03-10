@@ -25,7 +25,10 @@
     "@angular/router": "~11.1.0",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@ng-select/ng-select": "^5.1.0",
-    "ibm-watson": "^6.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express-browserify": "^1.0.3",
+    "ibm-watson": "^6.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
