@@ -44,6 +44,8 @@ export class MapComponent {
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
+          this.locationService.setLat(this.latitude);
+          this.locationService.setLng(this.longitude);
           this.zoom = 12;
         });
       });
