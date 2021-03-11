@@ -16,16 +16,20 @@ export class ResultsComponent implements OnInit {
   config: Config;
   searchTerm: string;
   term: string;
+  lat: Number;
+  lng: Number;
 
   constructor(private restService: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.searchTerm = this.route.snapshot.queryParamMap.get('search');
-    this.showResults(this.searchTerm);
+    this.lat = 39.5;
+    this.lng = -81.5;
+    this.showResults(this.searchTerm, this.lat, this.lng);
   }
 
-  showResults(searchTerm: string) {
-    this.restService.getDiscResultsBackend(searchTerm).subscribe((data: Config) => {
+  showResults(searchTerm: string, lat: Number, lng: Number) {
+    this.restService.getDiscResultsBackend(searchTerm, lat, lng).subscribe((data: Config) => {
       console.log("test1")
       this.config = { ...data }
       console.log(this.config)
@@ -34,7 +38,7 @@ export class ResultsComponent implements OnInit {
 
   showUpdatedResults(term: string) {
     this.searchTerm = term;
-    this.showResults(this.searchTerm)
+    this.showResults(this.searchTerm, this.lat, this.lng)
     this.router.navigate(['/results'], { queryParams: { search: this.searchTerm } });
   }
 

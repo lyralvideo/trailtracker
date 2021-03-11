@@ -52,9 +52,9 @@ export class RestService {
   }
 
   // Method to make calls to Discovery service. Takes query parameters as input from results component
-  getDiscResultsBackend(query: String) {
+  getDiscResultsBackend(query: String, lat: Number, lng: Number) {
     console.log("Making Discovery request to backend");
-    return this.httpClient.get("http://localhost:3000/" + "disc_test" + "/?search=" + query, requestOptions)
+    return this.httpClient.get("http://localhost:3000/" + "disc_test" + "/?search=" + query + "&lat=" + lat + "&lng=" + lng, requestOptions)
   }
 
   // Method to make calls to Watson NLU service. Very similar to getDiscResultsBackend
