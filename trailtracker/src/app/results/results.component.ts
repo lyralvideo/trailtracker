@@ -43,7 +43,7 @@ export class ResultsComponent implements OnInit {
   showUpdatedResults(term: string) {
     this.searchTerm = term;
     this.showResults(this.searchTerm, this.lat, this.lng)
-    this.router.navigate(['/results'], { queryParams: { search: this.searchTerm } });
+    this.router.navigate(['/results'], { queryParams: { search: this.searchTerm, latitude: this.lat, longitude: this.lng } });
   }
 
   onSubmit(id: string) {
