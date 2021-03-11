@@ -4,6 +4,7 @@ import { MatCardHarness } from '@angular/material/card/testing';
 import { Config } from 'protractor';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { LocationService } from 'app/location.service';
 
 @Component({
   selector: 'app-results',
@@ -19,12 +20,15 @@ export class ResultsComponent implements OnInit {
   lat: Number;
   lng: Number;
 
-  constructor(private restService: RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private restService: RestService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private locationService: LocationService) { }
 
   ngOnInit(): void {
     this.searchTerm = this.route.snapshot.queryParamMap.get('search');
-    this.lat = 39.5;
-    this.lng = -81.5;
+    this.lat = Number(this.route.snapshot.queryParamMap.get('latitude'));
+    this.lng = Number(this.route.snapshot.queryParamMap.get('longitude'));
     this.showResults(this.searchTerm, this.lat, this.lng);
   }
 

@@ -1,5 +1,6 @@
 import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { MapsAPILoader } from '@agm/core'
+import { LocationService } from 'app/location.service';
 
 @Component({
   selector: 'app-map',
@@ -19,7 +20,8 @@ export class MapComponent {
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private locationService: LocationService
   ) { }
 
   ngOnInit() {
@@ -51,6 +53,8 @@ export class MapComponent {
   markerDragEnd($event: google.maps.MouseEvent) {
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
+    this.locationService.setLat(this.latitude);
+    this.locationService.setLng(this.longitude);
   }
 
   private setCurrentLocation() {
@@ -59,6 +63,8 @@ export class MapComponent {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 8;
+        this.locationService.setLat(this.latitude);
+        this.locationService.setLng(this.longitude);
         this.getAddress(this.latitude, this.longitude);
       });
     }
@@ -80,14 +86,6 @@ export class MapComponent {
       }
 
     });
-  }
-
-  getLat() {
-    return this.latitude;
-  }
-
-  getLng() {
-    return this.longitude;
   }
 }
 

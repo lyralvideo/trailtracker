@@ -22,6 +22,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { MapComponent } from './map/map.component';
+import { LocationService } from './location.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { MapComponent } from './map/map.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [GoogleMapsAPIWrapper],
+  providers: [GoogleMapsAPIWrapper, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
