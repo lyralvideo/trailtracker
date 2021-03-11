@@ -38,9 +38,9 @@ export class ResultsComponent implements OnInit {
     this.router.navigate(['/results'], { queryParams: { search: this.searchTerm } });
   }
 
-  onSubmit(name: string) {
+  onSubmit(id: string) {
     console.log(name);
-    this.router.navigate(['/trail'], { queryParams: { name: name } });
+    this.router.navigate(['/trail'], { queryParams: { id: id } });
 
   }
 }

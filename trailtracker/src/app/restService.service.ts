@@ -63,4 +63,10 @@ export class RestService {
     return this.httpClient.get("http://localhost:3000/" + "search" + "/?search=" + query, requestOptions)
   }
 
+  // Method to make calls to Watson Discovery service for purpose of obtaining single trail.
+  getTrailBackend(query: String) {
+    console.log("Making request to Disc for single trail");
+    return this.httpClient.get("http://localhost:3000/" + "trailSearch" + "/?id=" + query, requestOptions)
+  }
+
 }

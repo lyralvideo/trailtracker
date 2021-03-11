@@ -16,7 +16,7 @@
             <h1>Showing results for "{{searchTerm}}"</h1>
             <div *ngIf='config' class= "row">
                 <mat-card *ngFor='let result of config.results' class= "result_list">
-                    <form #f="ngForm" (ngSubmit)="onSubmit(result.name)">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(result.id)">
                         <div class= "card_data row">
                             <div *ngIf='result.image' class= "col">
                                 <img src={{result.image}} alt= "Trail Image">

@@ -146,6 +146,26 @@ const discoveryAuthenticator = new IamTokenManager({
         console.log(err)
       });
   });
+
+  // Get request for a single trail page
+  app.get('/trailSearch', cors(), function(req, res) {
+    //print search param to console to show functionality
+    console.log(req.query.id);
+    //form request from nlu useing search param in url query
+    return discovery
+      .query({
+        environmentId: '35ef0ced-f8c5-4f16-a57c-098c66505472',
+        collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1',
+        filter: "id::\"" + req.query.id + "\"",
+      })
+      .then(({ result }) => {
+        //getLocation(result)
+        res.send(result)
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  });
   
   app.get('/api/token', function (req, res) {
     return discoveryAuthenticator

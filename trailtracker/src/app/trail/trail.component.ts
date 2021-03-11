@@ -20,12 +20,12 @@ export class TrailComponent implements OnInit {
   constructor(private restService: RestService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.trailName = this.route.snapshot.queryParamMap.get('name');
+    this.trailName = this.route.snapshot.queryParamMap.get('id');
     this.getResults(this.trailName);
   }
 
   getResults(searchTerm: string) {
-    this.restService.getResults(searchTerm).subscribe((data: Config) => {
+    this.restService.getTrailBackend(searchTerm).subscribe((data: Config) => {
       this.config = { ...data}
       console.log(this.config.results[0])});
   }
