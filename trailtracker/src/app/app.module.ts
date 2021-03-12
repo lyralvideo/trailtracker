@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultsComponent } from './results/results.component';
 import { TrailComponent } from './trail/trail.component';
+import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { NgSelectModule } from '@ng-select/ng-select'; 
@@ -19,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AuthModule } from './auth-module/auth-module.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     TrailComponent,
     SearchBarComponent,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     MatButtonModule,
@@ -41,6 +44,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     NgSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AuthModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
@@ -50,6 +54,10 @@ import { AuthGuardService } from './services/auth-guard.service';
       {
         path: 'trail',
         component: TrailComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
       {
         path: 'results',
