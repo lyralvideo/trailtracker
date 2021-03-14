@@ -26,12 +26,12 @@ import { AuthModule } from './auth-module/auth-module.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    
     ResultsComponent,
     TrailComponent,
     SearchBarComponent,
     ProfileComponent,
-    RegisterComponent,
+    
   ],
   imports: [
     MatButtonModule,
