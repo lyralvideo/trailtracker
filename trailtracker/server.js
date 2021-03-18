@@ -63,16 +63,68 @@ app.listen(port, function () {
   console.log('Watson browserify example server running at http://localhost:%s/', port);
 });
 
-//NLU Parse Module - Obtaining Location - Output location 
-//implementation to come
-//var getLocation = function (input) {
-//  console.log("Getting Location");
-//  
-//}
-
+//NLU Parse Module 1 - Obtaining Location - Output location 
+//For each entity identified, check if it is a location. If so add it to the array to be returned
 function getLocation(input) {
-  //var jsonOut = JSON.parse(input);
-  console.log(JSON.stringify(input, null, 2));
+  for (index in input.entities) {
+    if (input.entities[index].type == 'Location'){
+      //console.log(input.entities[index].text);
+      return input.entities[index].text;
+    }
+  }
+}
+
+//Function to perform nlu query and necessary operations if promise succeeds
+function NLUquery(params) {
+  return new Promise ( (fulfill, reject) => {
+    nlu
+    .analyze({
+      'language': 'en',
+      'text': '' + params,
+      'features': {
+        'entities': {
+          'sentiment': true,
+        },
+        'keywords': {
+          'sentiment': true,
+        }
+      }
+    })
+    .then(({ result }) => {
+      //console.log(result)
+      location_text = getLocation(result);
+      fulfill(location_text);
+      //app.get('/disc_test')
+      //res.send(result)
+    })
+    .catch(err => {
+      console.log(err)
+      reject(err);
+    });
+  });
+}
+
+//discovery query function to be called after nlu query has obtained location data
+function discQuery(nlqString, location) { 
+  return new Promise ( (fulfill, reject) => {
+    discovery
+    .query({
+      environmentId: '35ef0ced-f8c5-4f16-a57c-098c66505472',
+      collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1',
+      filter: "description:\"" + location + "\"",
+      naturalLanguageQuery: '' + nlqString,
+    })
+    .then(({ result }) => {
+      //console.log(result)
+      fulfill(result);
+      //app.get('/disc_test')
+      //res.send(result)
+    })
+    .catch(err => {
+      console.log(err)
+      reject(err);
+    });
+  });
 }
 
 //Test method to perform static query on IBM watson discovery service
@@ -122,30 +174,24 @@ app.get('/nlu_test', function (req, res) {
     });
 });
 
-app.get('/search', cors(), function (req, res) {
+app.get('/search', cors(), function(req, res) {
   //print search param to console to show functionality
   console.log(req.query.search);
-  //form request from nlu useing search param in url query
-  nlu
-    .analyze({
-      'language': 'en',
-      'text': '' + req.query.search,
-      'features': {
-        'entities': {
-          'sentiment': true,
-        },
-        'keywords': {
-          'sentiment': true,
-        }
-      }
+  //first call NLU query passing in the search param from original request
+  //we use .then to ensure that we wait for the request to be completed, 
+  //before passing the respones (res1) into the inner function
+  NLUquery(req.query.search).then(function (res1) {
+    //here we print res1 to console for error checking
+    console.log(res1);
+    //now res1 should have returned a single location
+    //we will use this location to filter our results in our discovery query
+    //discovery query is called similarly to NLU query but with an additional parameter
+    // and the response to this query should be relevant documents from discovery
+    discQuery(req.query.search, res1).then(function (res2){
+      console.log(res2)
+      res.send(res2)
     })
-    .then(({ result }) => {
-      getLocation(result)
-      res.send(result)
-    })
-    .catch(err => {
-      console.log(err)
-    });
+  })
 });
 
 // Get request for a single trail page
