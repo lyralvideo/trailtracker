@@ -4,10 +4,10 @@ var md5 = require('md5');
 var jwt = require('jsonwebtoken');
 var mysql = require('mysql');
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "simpleangular"
+    host: "dashdb-txn-sbox-yp-dal09-10.services.dal.bluemix.net",
+    user: "	ljx56093",
+    password: "b0x5td22n453@56s",
+    database: "BLUDB"
 });
 router.post('/register', async function (req, res, next) {
     try {let { username, email, password } = req.body;
