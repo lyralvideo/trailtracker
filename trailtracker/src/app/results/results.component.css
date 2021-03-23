@@ -24,7 +24,7 @@
   }
 
   .result_list_box {
-    background-color :#129618;
+    background-color: #0c6810;
     border: 1px;
     border-color: rgb(0, 0, 0);
     border-style: solid;
@@ -38,9 +38,7 @@
 
   .result_list_box h1{
     color: black;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 15px;
+    text-align: center;
     width: 100%;
     display:block;
   }
@@ -85,8 +83,8 @@
   div.trail_card_button button {
     border-radius: 15px;
     color: #fff;
-    background-color:#0d6efd;
-    border-color: #0d6efd;
+    background-color:#0c6810;
+    border-color: #0c6810;
     margin: 25% 0%;
     width: 100px;
     height: 50px;
@@ -95,8 +93,8 @@
   div.trail_card_button button:hover {
     border-radius: 15px;
     color: rgb(170, 170, 170);
-    background-color:#0c54be;
-    border-color: #0c54be;
+    background-color:#0c6810;
+    border-color: #0c6810;
   }
 
   div.card_data h3{
@@ -144,29 +142,7 @@
   .spacer {
     flex: 1;
   }
-  
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    background-color: #0c6810;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .toolbar span {
-    margin: 0 16px;
-  }
-  
-  .toolbar button {
-    margin-right: 16px;
-  }
 
-  
   body {
     font-family: Arial;
   }
@@ -175,33 +151,28 @@
     box-sizing: border-box;
   }
 
-  form.example {
+  section.example {
     min-width: 700px;
-    margin-bottom: 30px;
   }
-
-  form.example input[type=text] {
+  
+  section.example input[type=text] {
     min-height: 80px;
-    min-width: 500px;
+    max-width: 535px;
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
+    border-radius: 10px;
+    margin-right: 20px;
   }
   
-  form.example button {
-    float: center;
-    width: 18%;
-    
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    cursor: pointer;
+  section.example button {
+    width: 20%;
     min-height: 80px;
+    border-radius: 10px;
+    background-color: #0c6810;
   }
   
   form.example button:hover {
@@ -216,10 +187,10 @@
   
   .small-image {
     display: flex;
-    margin-top: 0px;
-    margin-bottom: 0px;
     margin-left: 30px;
+    margin-bottom: 0px;
     margin-right: 0px;
+    margin-top: 0px;
     padding: 21px 10px;
     max-width: 40px;
     min-height: 30px;
@@ -231,5 +202,42 @@
     background-image: url("../../assets/images/magnifyingglass.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
+  }
+  
+  .advanced-search {
+    min-width: 700px;
+  
+  }
+  
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
   }

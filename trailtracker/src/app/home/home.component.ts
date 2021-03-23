@@ -8,10 +8,8 @@ import { RestService } from 'app/restService.service';
 })
 export class HomeComponent implements OnInit {
 
-  
   constructor() { }
 
   ngOnInit(): void {
   }
-  
 }
