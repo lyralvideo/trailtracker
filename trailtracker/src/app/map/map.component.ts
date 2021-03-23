@@ -1,5 +1,5 @@
-import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
-import { MapsAPILoader } from '@agm/core'
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { MapsAPILoader } from '@agm/core';
 import { LocationService } from 'app/location.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { LocationService } from 'app/location.service';
   templateUrl: 'map.component.html',
   styleUrls: ['map.component.css'],
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
   latitude = 40.0017;
   longitude = -83.0197;
   markerDraggable = true;
@@ -24,24 +24,24 @@ export class MapComponent {
     private locationService: LocationService
   ) { }
 
-  ngOnInit() {
-    //load Places Autocomplete
+  ngOnInit(): void {
+    // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
-      this.geoCoder = new google.maps.Geocoder;
+      this.geoCoder = new google.maps.Geocoder();
 
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-      autocomplete.addListener("place_changed", () => {
+      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+      autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          // get the place result
+          const place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          //verify result
+          // verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
 
-          //set latitude, longitude and zoom
+          // set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.locationService.setLat(this.latitude);
@@ -52,14 +52,14 @@ export class MapComponent {
     });
   }
 
-  markerDragEnd($event: google.maps.MouseEvent) {
+  markerDragEnd($event: google.maps.MouseEvent): void {
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
     this.locationService.setLat(this.latitude);
     this.locationService.setLng(this.longitude);
   }
 
-  private setCurrentLocation() {
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
@@ -72,8 +72,8 @@ export class MapComponent {
     }
   }
 
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+  getAddress(latitude, longitude): void {
+    this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
       console.log(results);
       console.log(status);
       if (status === 'OK') {

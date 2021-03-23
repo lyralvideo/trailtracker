@@ -31,7 +31,7 @@
     "express-browserify": "^1.0.3",
     "ibm-watson": "^6.0.3",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.1.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {

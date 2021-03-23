@@ -17,10 +17,11 @@ export class ResultsComponent implements OnInit {
   config: Config;
   searchTerm: string;
   term: string;
-  lat: Number;
-  lng: Number;
+  lat: number;
+  lng: number;
 
-  constructor(private restService: RestService,
+  constructor(
+    private restService: RestService,
     private route: ActivatedRoute,
     private router: Router,
     private locationService: LocationService) { }
@@ -32,23 +33,21 @@ export class ResultsComponent implements OnInit {
     this.showResults(this.searchTerm, this.lat, this.lng);
   }
 
-  showResults(searchTerm: string, lat: Number, lng: Number) {
+  showResults(searchTerm: string, lat: number, lng: number): void {
     this.restService.getDiscResultsBackend(searchTerm, lat, lng).subscribe((data: Config) => {
-      console.log("test1")
-      this.config = { ...data }
-      console.log(this.config)
+      console.log('test1');
+      this.config = { ...data };
+      console.log(this.config);
     });
   }
 
-  showUpdatedResults(term: string) {
+  showUpdatedResults(term: string): void {
     this.searchTerm = term;
-    this.showResults(this.searchTerm, this.lat, this.lng)
+    this.showResults(this.searchTerm, this.lat, this.lng);
     this.router.navigate(['/results'], { queryParams: { search: this.searchTerm, latitude: this.lat, longitude: this.lng } });
   }
 
-  onSubmit(id: string) {
-    console.log(name);
-    this.router.navigate(['/trail'], { queryParams: { id: id } });
-
+  onSubmit(id: string): void {
+    this.router.navigate(['/trail'], { queryParams: { id } });
   }
 }
