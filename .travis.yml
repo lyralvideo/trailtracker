@@ -15,6 +15,7 @@ install:
   - echo '*****Build Starts*****'
   - echo 'Installing Dependencies'
   - npm install
+  - npm install @agm/core
   - ng add @angular/material
   - echo 'Running Tests'
 
