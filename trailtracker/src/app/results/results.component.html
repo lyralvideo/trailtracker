@@ -39,5 +39,17 @@
                 </mat-card>
             </div>
         </div>
+
+        <div class="page_buttons row">
+            <div class="col">
+                <button type="prevPage" (click)="pageDecrement()">Prev</button>
+            </div>
+            <div class="col">
+                <p>{{currentPageIndex}}/{{totalResultPages}}</p>
+            </div>
+            <div class="col">
+                <button type="nextPage" (click)="pageIncrement()">Next</button>
+            </div>
+        </div>
         
     </div>

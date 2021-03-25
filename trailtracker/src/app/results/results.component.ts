@@ -19,6 +19,8 @@ export class ResultsComponent implements OnInit {
   term: string;
   lat: number;
   lng: number;
+  totalResultPages: number;
+  currentPageIndex: number;
 
   constructor(
     private restService: RestService,
@@ -27,27 +29,48 @@ export class ResultsComponent implements OnInit {
     private locationService: LocationService) { }
 
   ngOnInit(): void {
+    console.log("resultsComp - ngOnInit called")
     this.searchTerm = this.route.snapshot.queryParamMap.get('search');
     this.lat = Number(this.route.snapshot.queryParamMap.get('latitude'));
     this.lng = Number(this.route.snapshot.queryParamMap.get('longitude'));
-    this.showResults(this.searchTerm, this.lat, this.lng);
+    this.currentPageIndex = Number(this.route.snapshot.queryParamMap.get('page'))
+    this.showResults(this.searchTerm, this.currentPageIndex, this.lat, this.lng);
   }
 
-  showResults(searchTerm: string, lat: number, lng: number): void {
-    this.restService.getDiscResultsBackend(searchTerm, lat, lng).subscribe((data: Config) => {
-      console.log('test1');
+  showResults(searchTerm: string, page: number, lat: number, lng: number): void {
+    this.restService.getDiscResultsBackend(searchTerm, page, lat, lng).subscribe((data: Config) => {
       this.config = { ...data };
       console.log(this.config);
+      this.totalResultPages = Math.ceil(this.config["matching_results"]/10)
     });
   }
 
   showUpdatedResults(term: string): void {
+    if (this.searchTerm != term){
+      this.currentPageIndex = 1;
+    }
     this.searchTerm = term;
-    this.showResults(this.searchTerm, this.lat, this.lng);
-    this.router.navigate(['/results'], { queryParams: { search: this.searchTerm, latitude: this.lat, longitude: this.lng } });
+    this.showResults(this.searchTerm, this.currentPageIndex, this.lat, this.lng);
+    this.router.navigate(['/results'], { queryParams: { search: this.searchTerm, page: this.currentPageIndex, latitude: this.lat, longitude: this.lng } });
   }
 
   onSubmit(id: string): void {
     this.router.navigate(['/trail'], { queryParams: { id } });
+  }
+
+  pageDecrement(): void {
+    if(this.currentPageIndex>1){
+      this.currentPageIndex--;
+      this.showUpdatedResults(this.searchTerm);
+      window.scrollTo(0,0);
+    }
+  }
+
+  pageIncrement(): void {
+    if(this.currentPageIndex<this.totalResultPages){
+      this.currentPageIndex++;
+      this.showUpdatedResults(this.searchTerm);
+      window.scrollTo(0,0);
+    }
   }
 }
