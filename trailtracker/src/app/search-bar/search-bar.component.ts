@@ -30,14 +30,14 @@ export class SearchBarComponent implements OnInit {
     { id: 8, name: 'High' }
   ];
 
-  getSelectedValue() {
+  getSelectedValue(): void {
     console.log(this.selected);
   }
 
-  onSubmit(data: string) {
-    console.log(data.search)
-    let lat = this.locationService.getLat();
-    let lng = this.locationService.getLng();
+  onSubmit(data: string): void {
+    console.log(data.search);
+    const lat = this.locationService.getLat();
+    const lng = this.locationService.getLng();
     this.router.navigate(['/results'], { queryParams: { search: data.search, latitude: lat, longitude: lng } });
 
   }

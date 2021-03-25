@@ -29,4 +29,8 @@ section {
     justify-content: center;
     width: 120px;
   }
+
+  .home-button {
+    background-color: transparent;
+  }
   

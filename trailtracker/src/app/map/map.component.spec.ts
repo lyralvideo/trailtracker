@@ -1,3 +1,4 @@
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MapComponent } from './map.component';
@@ -8,9 +9,14 @@ describe('MapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
-    })
-    .compileComponents();
+      declarations: [MapComponent],
+      providers: [{
+        provide: MapsAPILoader,
+        useValue: {
+          load: jasmine.createSpy('load').and.returnValue(new Promise(() => true))
+        }
+      }]
+    }).compileComponents();
   });
 
   beforeEach(() => {

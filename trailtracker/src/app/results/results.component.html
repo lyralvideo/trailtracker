@@ -1,16 +1,10 @@
 <!-- Toolbar -->
-    <div class="toolbar" role="banner">
-        <span>Welcome to Trail Tracker</span>  
-        <div class="spacer"></div>
-        <button routerLink="/login">Login or Sign Up</button>
-    </div>
-
     <div class= "content background">
         <h2>Trail Tracker</h2>
-        <form class="example">
-            <input type="text" placeholder="Search.." [(ngModel)]="term" name="search">
-            <button type="submit" (click) = showUpdatedResults(term)><i class="small-image magnify"></i></button>
-        </form>
+        <section class="example">
+            <input type="text" placeholder="Search Trail Tracker" [(ngModel)]="term" name="search">
+            <button name="search-button" type="submit" color="primary" (click) = showUpdatedResults(term)>Search</button>
+        </section>
 
         <div class="result_list_box">
             <h1>Showing results for "{{searchTerm}}"</h1>

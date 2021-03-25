@@ -14,7 +14,6 @@ export class TrailComponent implements OnInit {
   @Output() selectedChange = new EventEmitter<boolean>();
 
   config: Config;
-  
   trailName: string;
 
   constructor(private restService: RestService, private route: ActivatedRoute) { }
@@ -24,13 +23,14 @@ export class TrailComponent implements OnInit {
     this.getResults(this.trailName);
   }
 
-  getResults(searchTerm: string) {
+  getResults(searchTerm: string): void {
     this.restService.getTrailBackend(searchTerm).subscribe((data: Config) => {
-      this.config = { ...data}
-      console.log(this.config.results[0])});
+      this.config = { ...data };
+      console.log(this.config.results[0]);
+    });
   }
 
-  public toggleFavorite() {
+  public toggleFavorite(): void {
     this.selected = !this.selected;
     this.selectedChange.emit(this.selected);
   }

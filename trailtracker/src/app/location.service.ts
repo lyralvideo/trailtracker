@@ -5,24 +5,24 @@ import { Injectable } from '@angular/core';
 })
 export class LocationService {
 
-  latitude: Number;
-  longitude: Number;
+  latitude: number;
+  longitude: number;
 
   constructor() { }
 
-  setLat(lat: Number) {
+  setLat(lat: number): void {
     this.latitude = lat;
   }
 
-  setLng(lng: Number) {
+  setLng(lng: number): void {
     this.longitude = lng;
   }
 
-  getLat() {
+  getLat(): number {
     return this.latitude;
   }
 
-  getLng() {
+  getLng(): number {
     return this.longitude;
   }
 }
