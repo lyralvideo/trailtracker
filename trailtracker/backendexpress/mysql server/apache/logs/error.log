@@ -1,0 +1,9 @@
+[Thu Mar 25 14:52:15.903608 2021] [ssl:warn] [pid 21572:tid 672] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 25 14:52:16.047214 2021] [ssl:warn] [pid 21572:tid 672] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 25 14:52:16.198177 2021] [mpm_winnt:notice] [pid 21572:tid 672] AH00455: Apache/2.4.46 (Win64) OpenSSL/1.1.1j PHP/7.3.27 configured -- resuming normal operations
+[Thu Mar 25 14:52:16.198177 2021] [mpm_winnt:notice] [pid 21572:tid 672] AH00456: Apache Lounge VC15 Server built: Feb 18 2021 10:09:17
+[Thu Mar 25 14:52:16.198177 2021] [core:notice] [pid 21572:tid 672] AH00094: Command line: 'c:\\users\\asher\\.vscode\\trailtracker\\trailtracker\\backendexpress\\mysql server\\apache\\bin\\httpd.exe -d C:/Users/Asher/.vscode/trailtracker/trailtracker/backendexpress/mysql server/apache'
+[Thu Mar 25 14:52:16.207153 2021] [mpm_winnt:notice] [pid 21572:tid 672] AH00418: Parent: Created child process 11404
+[Thu Mar 25 14:52:17.174326 2021] [ssl:warn] [pid 11404:tid 752] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 25 14:52:17.270966 2021] [ssl:warn] [pid 11404:tid 752] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 25 14:52:17.349806 2021] [mpm_winnt:notice] [pid 11404:tid 752] AH00354: Child: Starting 150 worker threads.
