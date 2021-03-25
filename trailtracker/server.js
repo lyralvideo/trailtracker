@@ -131,11 +131,14 @@ function discQuery(nlqString, location) {
 app.get('/disc_test', cors(), function (req, res) {
   //print search param to console to show functionality
   console.log(req.query.search);
+  offset = ((req.query.page-1) * 10);
+  
   return discovery
     .query({
       environmentId: '35ef0ced-f8c5-4f16-a57c-098c66505472',
       collectionId: 'c7bf0198-9e14-40db-9e96-2b4d348585c1',
       naturalLanguageQuery: '' + req.query.search,
+      offset: offset,
       filter: '(latitude>' + (req.query.lat - .5) + ',latitude<' + (req.query.lat - (.5) * -1) + ',longitude>' + ((req.query.lng * -1) - .5) + ',longitude<' + ((req.query.lng * -1) - (.5 * -1)) + ')'
     })
     .then(({ result }) => {

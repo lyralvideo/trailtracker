@@ -38,7 +38,7 @@ export class SearchBarComponent implements OnInit {
     console.log(data.search);
     const lat = this.locationService.getLat();
     const lng = this.locationService.getLng();
-    this.router.navigate(['/results'], { queryParams: { search: data.search, latitude: lat, longitude: lng } });
+    this.router.navigate(['/results'], { queryParams: { search: data.search, page: 1, latitude: lat, longitude: lng } });
 
   }
 
