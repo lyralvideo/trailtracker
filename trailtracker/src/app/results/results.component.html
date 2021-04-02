@@ -1,22 +1,16 @@
 <!-- Toolbar -->
-    <div class="toolbar" role="banner">
-        <span>Welcome to Trail Tracker</span>  
-        <div class="spacer"></div>
-        <button routerLink="/login">Login or Sign Up</button>
-    </div>
-
     <div class= "content background">
         <h2>Trail Tracker</h2>
-        <form class="example">
-            <input type="text" placeholder="Search.." [(ngModel)]="term" name="search">
-            <button type="submit" (click) = showUpdatedResults(term)><i class="small-image magnify"></i></button>
-        </form>
+        <section class="example">
+            <input type="text" placeholder="Search Trail Tracker" [(ngModel)]="term" name="search">
+            <button name="search-button" type="submit" color="primary" (click) = showUpdatedResults(term)>Search</button>
+        </section>
 
         <div class="result_list_box">
             <h1>Showing results for "{{searchTerm}}"</h1>
             <div *ngIf='config' class= "row">
                 <mat-card *ngFor='let result of config.results' class= "result_list">
-                    <form #f="ngForm" (ngSubmit)="onSubmit(result.name)">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(result.id)">
                         <div class= "card_data row">
                             <div *ngIf='result.image' class= "col">
                                 <img src={{result.image}} alt= "Trail Image">
@@ -43,6 +37,18 @@
                         </div>
                     </form>
                 </mat-card>
+            </div>
+        </div>
+
+        <div class="page_buttons row">
+            <div class="col">
+                <button type="prevPage" (click)="pageDecrement()">Prev</button>
+            </div>
+            <div class="col">
+                <p>{{currentPageIndex}}/{{totalResultPages}}</p>
+            </div>
+            <div class="col">
+                <button type="nextPage" (click)="pageIncrement()">Next</button>
             </div>
         </div>
         

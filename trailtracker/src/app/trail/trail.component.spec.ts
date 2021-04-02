@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TrailComponent } from './trail.component';
-import { RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 describe('TrailComponent', () => {
@@ -9,18 +9,18 @@ describe('TrailComponent', () => {
   let fixture: ComponentFixture<TrailComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({imports: [HttpClientTestingModule],});
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     await TestBed.configureTestingModule({
-      declarations: [ TrailComponent ]
+      declarations: [TrailComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ NgSelectModule,
+      imports: [NgSelectModule,
         RouterTestingModule.withRoutes(
-          [{path: '', component: TrailComponent}]
+          [{ path: '', component: TrailComponent }]
         )
       ]
     });

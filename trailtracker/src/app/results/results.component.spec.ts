@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ResultsComponent } from './results.component';
-import { RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 describe('ResultsComponent', () => {
@@ -9,18 +9,18 @@ describe('ResultsComponent', () => {
   let fixture: ComponentFixture<ResultsComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({imports: [HttpClientTestingModule],});
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     await TestBed.configureTestingModule({
-      declarations: [ ResultsComponent ]
+      declarations: [ResultsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ NgSelectModule,
+      imports: [NgSelectModule,
         RouterTestingModule.withRoutes(
-          [{path: '', component: ResultsComponent}]
+          [{ path: '', component: ResultsComponent }]
         )
       ]
     });
