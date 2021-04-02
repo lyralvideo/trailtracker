@@ -1,6 +1,37 @@
+<!--
+
 <div class="toolbar" role="banner">
     <span><button mat-flat-button class="home-button" routerLink ="/home">Welcome To Trail Tracker</button></span>
     <div class="spacer"></div>
     <button mat-raised-button color="basic" routerLink ="/login">Login / Sign Up</button>
 </div>
+<router-outlet></router-outlet>
+
+-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Trail Tracker</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink] = "['']" routerLinkActive = "active">Home</a>
+            </li>
+            <li *ngIf= "loggedOut()" class="nav-item">
+                <a class="nav-link" [routerLink] = "['login']" routerLinkActive = "active">Login</a>
+            </li>
+            <li *ngIf= "loggedOut()" class="nav-item">
+                <a class="nav-link" [routerLink] = "['register']" routerLinkActive = "active" >Register</a>
+            </li>
+            <li *ngIf= "loggedIn()" class="nav-item">
+                <a class="nav-link" (click)="logout()" [routerLink] = "['logout']" routerLinkActive = "active" >Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <router-outlet></router-outlet>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Trail Tracker';
+  constructor(private auth:AuthService) {}
+
+  logout() {
+    this.auth.clearStorage();
+  }
+
+  loggedIn() {
+    return this.auth.loggedIn();
+  }
+
+  loggedOut() {
+    return this.auth.loggedOut();
+  }
+
 }

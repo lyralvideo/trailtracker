@@ -7,9 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultsComponent } from './results/results.component';
 import { TrailComponent } from './trail/trail.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { NgSelectModule } from '@ng-select/ng-select'; 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -19,6 +20,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AuthModule } from './auth-module/auth-module.module';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { MapComponent } from './map/map.component';
@@ -28,7 +31,7 @@ import { LocationService } from './location.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    
     ResultsComponent,
     TrailComponent,
     SearchBarComponent,
@@ -46,6 +49,7 @@ import { LocationService } from './location.service';
     NgSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AuthModule,
     NgbModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCdN8iOG2eBqzlsCZFjyOIUGPwtyDJ73Ew',
@@ -63,6 +67,10 @@ import { LocationService } from './location.service';
         component: TrailComponent
       },
       {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
         path: 'results',
         component: ResultsComponent
       },
@@ -74,6 +82,10 @@ import { LocationService } from './location.service';
         path: 'profile',
         component: ProfileComponent,
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'logout',
+        redirectTo: 'home', pathMatch: 'full' 
       },
     ]),
     BrowserAnimationsModule
