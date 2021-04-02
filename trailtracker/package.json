@@ -24,7 +24,7 @@
     "@ng-select/ng-select": "^5.1.0",
     "ibm-watson": "^6.0.2",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.1.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {

@@ -22,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthModule } from './auth-module/auth-module.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,10 @@ import { AuthModule } from './auth-module/auth-module.module';
         path: 'profile',
         component: ProfileComponent,
         canActivate:[AuthGuardService] 
+      },
+      {
+        path: 'logout',
+        redirectTo: 'home', pathMatch: 'full' 
       },
     ]),
     BrowserAnimationsModule

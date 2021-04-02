@@ -18,8 +18,25 @@ export class AuthService {
     getToken() { 
         return localStorage.getItem('token'); 
     } 
+
+    loggedIn() {
+        if (localStorage.getItem('token') == null) {
+            return false;
+        } else { 
+        return true;
+        }
+    }
+
+    loggedOut() {
+        if (localStorage.getItem('token') == null) {
+            return true;
+        } else { 
+        return false;
+        }
+    }
  
     clearStorage() { 
         localStorage.clear(); 
     } 
+
 }
