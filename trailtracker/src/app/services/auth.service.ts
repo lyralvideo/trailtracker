@@ -39,4 +39,8 @@ export class AuthService {
         localStorage.clear(); 
     } 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c79af03d43b627977edcca88d55cd0d68538663

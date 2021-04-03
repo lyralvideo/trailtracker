@@ -22,6 +22,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthModule } from './auth-module/auth-module.module';
 
+<<<<<<< HEAD
+=======
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { MapComponent } from './map/map.component';
+import { LocationService } from './location.service';
+>>>>>>> 0c79af03d43b627977edcca88d55cd0d68538663
 
 @NgModule({
   declarations: [
@@ -32,7 +39,11 @@ import { AuthModule } from './auth-module/auth-module.module';
     TrailComponent,
     SearchBarComponent,
     ProfileComponent,
+<<<<<<< HEAD
     
+=======
+    MapComponent,
+>>>>>>> 0c79af03d43b627977edcca88d55cd0d68538663
   ],
   imports: [
     MatButtonModule,
@@ -46,6 +57,15 @@ import { AuthModule } from './auth-module/auth-module.module';
     HttpClientModule,
     ReactiveFormsModule,
     AuthModule,
+<<<<<<< HEAD
+=======
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCdN8iOG2eBqzlsCZFjyOIUGPwtyDJ73Ew',
+      language: 'en',
+      libraries: ['geometry', 'places']
+    }),
+>>>>>>> 0c79af03d43b627977edcca88d55cd0d68538663
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
