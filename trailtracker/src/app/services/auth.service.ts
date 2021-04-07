@@ -37,6 +37,8 @@ export class AuthService {
  
     clearStorage() { 
         localStorage.clear(); 
+        console.log("cleared storage");
+        document.cookie = "username=;  expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     } 
 
 }

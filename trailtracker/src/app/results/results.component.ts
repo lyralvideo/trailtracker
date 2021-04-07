@@ -6,11 +6,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { LocationService } from 'app/location.service';
 
+
+
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
+
+
 export class ResultsComponent implements OnInit {
 
   headers: string[];

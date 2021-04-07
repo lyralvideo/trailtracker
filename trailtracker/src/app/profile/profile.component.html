@@ -1,1 +1,50 @@
-<p>profile works!</p>
+<div class= "content background">
+    <h2>Favorites</h2>
+
+    <div class="result_list_box">
+        <h1>{{displayedUsername}}'s favorite trails:</h1>
+        <div *ngIf='config' class= "row">
+            <mat-card *ngFor='let result of config.results' class= "result_list">
+                <form #f="ngForm" (ngSubmit)="onSubmit(result.id)">
+                    <div class= "card_data row">
+                        <div *ngIf='result.image' class= "col">
+                            <img src={{result.image}} alt= "Trail Image">
+                        </div>
+                        <div *ngIf='!result.image' class='col'>
+                            <img src='../../assets/images/background.jpg' alt= "Placeholder Image">
+                        </div>
+                        <div class= "col info_list">
+                            <h3>{{result.name}}</h3>
+                            <p>{{result.location}}</p>
+                            <ul>
+                                <li>{{result.length}} {{result.route_type}}</li>
+                                <li>Elevation Gain: {{result.elevation_gain}}</li>
+                                <li *ngIf='result.tag'>Activities:
+                                    <a *ngFor='let tag of result.tag'>
+                                        <a *ngIf="tag.tag_name.substring(tag.tag_name.length - 3) == 'ing'">{{tag.tag_name}}, </a>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class= "col trail_card_button">
+                                <button type="submit" color="primary">More Info</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="page_buttons row">
+        <div class="col">
+            <button type="prevPage" (click)="pageDecrement()">Prev</button>
+        </div>
+        <div class="col">
+            <p>{{currentPageIndex}}/{{totalResultPages}}</p>
+        </div>
+        <div class="col">
+            <button type="nextPage" (click)="pageIncrement()">Next</button>
+        </div>
+    </div>
+
+</div>

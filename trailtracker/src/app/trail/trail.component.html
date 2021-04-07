@@ -1,4 +1,4 @@
-<div class="content background" role="main">
+<div class=" content background mt-0" role="main">
     <div class="result_list_box">
         <div class="row">
             <mat-card class="result_list">
@@ -26,7 +26,7 @@
                                 <span *ngFor='let tag of config.results[0].tag; let i = index'>
                                     {{tag.tag_name}}{{i === config.results[0].tag.length -1 ? '' : ',&nbsp;' }}
                                 </span>
-                                <h2>Favorite: <button mat-icon-button (click)="toggleFavorite()">
+                                <h2 *ngIf= "loggedIn()">Favorite: <button mat-icon-button (click)="addFavorite()">
                                         <mat-icon *ngIf="selected" role="img">
                                             favorite
                                         </mat-icon>

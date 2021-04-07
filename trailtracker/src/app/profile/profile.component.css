@@ -1,0 +1,30 @@
+.profile_box {
+    background-color: #0c6810;
+    border: 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    display: table;
+    width: 1200px;
+    height: auto;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    border-radius: 25px;
+  }
+
+  .profile_list{
+    color: black;
+    text-align: center;
+    width: 100%;
+    display:block;
+  }
+
+  mat-card.result_card {
+    border: 1px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    width: 48%;
+    padding: 10px 10px;
+    margin: 12px 10px;
+    border-radius: 25px;
+    float:left;
+  }
