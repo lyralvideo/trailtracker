@@ -4,7 +4,7 @@ import { RestService } from 'app/restService.service';
 import { Config } from 'protractor';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
-import {FormsModule,NgForm} from '@angular/forms';
+import {FormsModule,NgForm, SelectMultipleControlValueAccessor} from '@angular/forms';
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -36,6 +36,7 @@ export class TrailComponent implements OnInit {
   favorites: string;
   pack: string;
   test: boolean;
+  timer: number;
 
   constructor(
     private restService: RestService, 
@@ -60,54 +61,52 @@ export class TrailComponent implements OnInit {
     this.selectedChange.emit(this.selected);
   }
 
-
-
-  checkDupes(): boolean {
-    this.test = false;
-    var id = this.route.snapshot.queryParamMap.get('id')
-    this._api.postTypeRequest('user/favorites/:' + getCookie('username'), '').subscribe((res: any) => {
-      
-      if (res.status) { 
-
-        var favList = JSON.stringify(res.data).slice(15).split(',')
-        console.log(favList);
-        console.log(id);
-        if (favList.every( async function check(value) {console.log( value + "=" + id + ":" + (value == id)); return (id !== value);} )) {
-          
-        } else {
-        console.log("thats already favorited!")
-          
-          this.test = true;
-          return true;
-
-        }
-         
-          
-        } 
-        
-     });
-
-  if (this.test) {return true}
-
-    return false
-  }
-
-  public addFavorite(): void {
+ 
+  public addFavorite() {
   //first, check for dupe favorites:
-    //if (this.checkDupes()) {
+  var id = this.route.snapshot.queryParamMap.get('id')
+  this._api.postTypeRequest('user/favorites/:' + getCookie('username'), '').subscribe((res: any) => {
+      
+    if (res.status) { 
+
+      var favList = JSON.stringify(res.data)
+      //
+      //console.log(favList);
+      if (favList.search(id) !== -1) {
+        this.test = true;
+        console.log("thats already favorited!")
+        this.test = true;
+        return true;
+      }  else {
+        this.addFavPart2()
+        return false;
+      }
+      
+      } 
+      
+   });
+
+    this.selected = !this.selected;
+    this.selectedChange.emit(this.selected)
+    // this.test = false;
+   // await this.checkDupes()      
+   // console.log(this.test)
+   // if (this.test) {return false}
 
     
    
     //Then add the id to database.
-    this._api.postTypeRequest('user/addfav/:' + getCookie('username') + '&:' + this.route.snapshot.queryParamMap.get('id'), '').subscribe((res: any) => {
+    
+     }
+    
+   addFavPart2() {
+      this._api.postTypeRequest('user/addfav/:' + getCookie('username') + '&:' + this.route.snapshot.queryParamMap.get('id'), '').subscribe((res: any) => {
       if (res.status) {
         console.log(res)    }});
 
-    this.selected = !this.selected;
-    this.selectedChange.emit(this.selected)
-     }
 
-   // }
+
+   }
 
     
 
